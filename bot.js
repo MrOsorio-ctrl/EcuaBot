@@ -1212,7 +1212,7 @@ client.once(Events.ClientReady, async () => {
     
     client.user.setPresence({
         activities: [{ 
-            name: 'EcuaCraft Network', 
+            name: 'EcuaCraft Network • Managemnt System', 
             type: ActivityType.Watching 
         }],
         status: 'online'
