@@ -164,7 +164,7 @@ const anuncioCommand = {
 
         // Mensaje normal al canal, sin referencia al comando
         await interaction.channel.send({
-            content: '@everyone',
+            content: '||@everyone||',
             embeds: [embed],
             allowedMentions: { parse: ['everyone'] }
         });
