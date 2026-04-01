@@ -13,8 +13,6 @@ const {
     Events
 } = require('discord.js');
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
 
 // ==================== CONFIGURACIÓN ====================
 const CONFIG = {
@@ -164,13 +162,15 @@ const anuncioCommand = {
             embed.setImage(imagen.url);
         }
 
-        await interaction.reply({ content: '✅ Anuncio publicado', ephemeral: true });
-        
+        // Mensaje normal al canal, sin referencia al comando
         await interaction.channel.send({
             content: '@everyone',
             embeds: [embed],
             allowedMentions: { parse: ['everyone'] }
         });
+        
+        // Confirmación ephemeral al usuario
+        await interaction.reply({ content: '✅ Anuncio publicado', ephemeral: true });
     }
 };
 commands.push(anuncioCommand);
@@ -232,7 +232,9 @@ const promoteCommand = {
             .setFooter({ text: FOOTER_TEXT_ADMIN })
             .setTimestamp();
 
-        await interaction.reply({ embeds: [embed] });
+        // Mensaje normal al canal
+        await interaction.channel.send({ embeds: [embed] });
+        await interaction.reply({ content: '✅ Ascenso anunciado', ephemeral: true });
     }
 };
 commands.push(promoteCommand);
@@ -298,7 +300,9 @@ const demoteCommand = {
                 .setFooter({ text: FOOTER_TEXT_ADMIN })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed] });
+            // Mensaje normal al canal
+            await interaction.channel.send({ embeds: [embed] });
+            await interaction.reply({ content: '✅ Usuario demoteado y expulsado', ephemeral: true });
 
         } catch (error) {
             console.error('Error en demote:', error);
@@ -368,7 +372,9 @@ const degradoCommand = {
             .setFooter({ text: FOOTER_TEXT_ADMIN })
             .setTimestamp();
 
-        await interaction.reply({ embeds: [embed] });
+        // Mensaje normal al canal
+        await interaction.channel.send({ embeds: [embed] });
+        await interaction.reply({ content: '✅ Degrado anunciado', ephemeral: true });
     }
 };
 commands.push(degradoCommand);
@@ -423,7 +429,9 @@ const strikeCommand = {
             .setFooter({ text: FOOTER_TEXT_ADMIN })
             .setTimestamp();
 
-        await interaction.reply({ embeds: [embed] });
+        // Mensaje normal al canal
+        await interaction.channel.send({ embeds: [embed] });
+        await interaction.reply({ content: '✅ Strike emitido', ephemeral: true });
     }
 };
 commands.push(strikeCommand);
@@ -478,7 +486,9 @@ const warnCommand = {
             .setFooter({ text: FOOTER_TEXT_ADMIN })
             .setTimestamp();
 
-        await interaction.reply({ embeds: [embed] });
+        // Mensaje normal al canal
+        await interaction.channel.send({ embeds: [embed] });
+        await interaction.reply({ content: '✅ Advertencia emitida', ephemeral: true });
     }
 };
 commands.push(warnCommand);
@@ -558,7 +568,9 @@ const addrolCommand = {
                 .setFooter({ text: FOOTER_TEXT_ADMIN })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed] });
+            // Mensaje normal al canal
+            await interaction.channel.send({ embeds: [embed] });
+            await interaction.reply({ content: '✅ Rol asignado', ephemeral: true });
 
         } catch (error) {
             console.error('Error en addrol:', error);
@@ -646,7 +658,9 @@ const delrolCommand = {
                 .setFooter({ text: FOOTER_TEXT_ADMIN })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed] });
+            // Mensaje normal al canal
+            await interaction.channel.send({ embeds: [embed] });
+            await interaction.reply({ content: '✅ Rol removido', ephemeral: true });
 
         } catch (error) {
             console.error('Error en delrol:', error);
@@ -704,6 +718,7 @@ const clearCommand = {
                 .setFooter({ text: FOOTER_TEXT_ADMIN })
                 .setTimestamp();
 
+            // Mensaje normal al canal
             const publicMsg = await interaction.channel.send({ embeds: [embed] });
             
             await interaction.editReply({ content: `✅ ${mensajes.size} mensajes eliminados.` });
@@ -848,7 +863,9 @@ const guiaCommand = {
         embed.addFields(fields);
         embed.setFooter({ text: FOOTER_TEXT_ADMIN });
 
-        await interaction.reply({ embeds: [embed] });
+        // Mensaje normal al canal
+        await interaction.channel.send({ embeds: [embed] });
+        await interaction.reply({ content: '✅ Guía enviada', ephemeral: true });
     }
 };
 commands.push(guiaCommand);
@@ -915,7 +932,9 @@ const muteCommand = {
                 .setFooter({ text: FOOTER_TEXT_MOD })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed] });
+            // Mensaje normal al canal
+            await interaction.channel.send({ embeds: [embed] });
+            await interaction.reply({ content: '✅ Usuario muteado', ephemeral: true });
 
         } catch (error) {
             console.error('Error en mute:', error);
@@ -1015,7 +1034,9 @@ const tempmuteCommand = {
                 .setFooter({ text: FOOTER_TEXT_MOD })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed] });
+            // Mensaje normal al canal
+            await interaction.channel.send({ embeds: [embed] });
+            await interaction.reply({ content: '✅ Usuario temp-muteado', ephemeral: true });
 
         } catch (error) {
             console.error('Error en tempmute:', error);
@@ -1082,7 +1103,9 @@ const unmuteCommand = {
                 .setFooter({ text: FOOTER_TEXT_MOD })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed] });
+            // Mensaje normal al canal
+            await interaction.channel.send({ embeds: [embed] });
+            await interaction.reply({ content: '✅ Unmute aplicado', ephemeral: true });
 
         } catch (error) {
             console.error('Error en unmute:', error);
@@ -1171,7 +1194,9 @@ const moderacionCommand = {
         embed.addFields(fields);
         embed.setFooter({ text: FOOTER_TEXT_MOD });
 
-        await interaction.reply({ embeds: [embed] });
+        // Mensaje normal al canal
+        await interaction.channel.send({ embeds: [embed] });
+        await interaction.reply({ content: '✅ Guía de moderación enviada', ephemeral: true });
     }
 };
 commands.push(moderacionCommand);
