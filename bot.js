@@ -25,7 +25,7 @@ const CONFIG = {
     ROL_MODERACION: '➻ DISCORD MOD'
 };
 
-const COLORS = {
+const COLORS = {    
     SUCCESS: 0x2ECC71,
     ERROR: 0xE74C3C,
     WARNING: 0xE67E22,
@@ -81,7 +81,7 @@ function createWelcomeEmbed(member, roles) {
         .setTitle('📢 ¡TE DAMOS LA BIENVENIDA AL STAFF DE ECUACRAFT NETWORK!')
         .setDescription(
             `🎉 Bienvenido/a **${member.displayName}** (${member}), te damos la más cálida acogida.\n\n` +
-            `👤 Por favor sé paciente mientras los HighStaff te hacen el ingreso.`
+            `👤 Por favor se paciente mientras los HighStaff te hacen el ingreso.`
         )
         .setColor(COLORS.SUCCESS)
         .setThumbnail(member.displayAvatarURL({ dynamic: true }))
@@ -1212,7 +1212,7 @@ client.once(Events.ClientReady, async () => {
     
     client.user.setPresence({
         activities: [{ 
-            name: 'EcuaCraft Network • Managemnt System', 
+            name: 'Managemnt System', 
             type: ActivityType.Watching 
         }],
         status: 'online'
