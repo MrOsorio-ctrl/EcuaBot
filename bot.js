@@ -1212,7 +1212,7 @@ client.once(Events.ClientReady, async () => {
     
     client.user.setPresence({
         activities: [{ 
-            name: 'Managemnt System', 
+            name: 'Management System', 
             type: ActivityType.Watching 
         }],
         status: 'online'
