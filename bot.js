@@ -33,8 +33,8 @@ const COLORS = {
     TIMEOUT: 0xF39C12
 };
 
-const FOOTER_TEXT_ADMIN = 'EcuaCraft Network • Sistema Administrativo Oficial';
-const FOOTER_TEXT_MOD = 'EcuaCraft Network • Sistema de Moderación Oficial';
+const FOOTER_TEXT_ADMIN = 'EcuaCraft Network • Sistema Administrativo Oficial.';
+const FOOTER_TEXT_MOD = 'EcuaCraft Network • Sistema de Moderación Oficial.';
 
 // ==================== CLIENTE ====================
 const client = new Client({
